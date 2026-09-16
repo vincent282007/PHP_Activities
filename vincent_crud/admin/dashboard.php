@@ -6,6 +6,7 @@
         header("Location: ../index.php");
         exit;
     }
+    //used only if one data is needed
     $students = mysqli_query($conn, "SELECT id FROM users WHERE role='student'");//search for users with student role only
     $subjects = mysqli_query($conn, "SELECT id FROM subjects");//search for the number of subjects
     $enrollments = mysqli_query($conn, "SELECT id FROM enrollments");//search for the number of enrollments
@@ -77,7 +78,7 @@
                         <h2><?php echo mysqli_num_rows ($students);?></h2>
 
                         <a
-                            href="students.html"
+                            href="students/index.php"
                             class="btn btn-primary btn-sm"
                         >
                             Manage Students
@@ -97,7 +98,7 @@
                         <h2><?php echo mysqli_num_rows ($subjects);?></h2>
 
                         <a
-                            href="subjects.html"
+                            href="subjects/index.php"
                             class="btn btn-primary btn-sm"
                         >
                             Manage Subjects

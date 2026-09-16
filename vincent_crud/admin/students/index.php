@@ -1,3 +1,16 @@
+<?php
+    session_start();
+    include "../../config/database.php";//dalawang beses lalabas ng folder, use ../../
+    //validation - to make sure that the user is admin
+    if(!isset ($_SESSION["role"]) || $_SESSION["role"] != "admin"){
+        header("Location: ../../index.php");
+        exit;
+    }
+    $sql = "SELECT * FROM users WHERE role='student' ORDER BY id DESC"; //to get the list of students
+    $result = mysqli_query($conn, $sql); //to make the sql command work
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -42,21 +55,23 @@
 
     <!-- Main Content -->
     <div class="container py-4">
-
+        <?php if(isset($_GET["message"])){?>
+            <div class="alert alert-success"><?php echo $_GET["message"];?></div>
+        <?php } ?>
         <!-- Header Section -->
         <div class="d-flex justify-content-between mb-3">
 
             <div>
                 <h2>Student Accounts</h2>
 
-                <a href="dashboard.html">
+                <a href="../dashboard.php">
                     ← Dashboard
                 </a>
             </div>
 
             <a
                 class="btn btn-primary"
-                href="student_form.html"
+                href="create.php"
             >
                 + Add Student
             </a>
@@ -81,15 +96,18 @@
                     <tbody>
 
                         <!-- Student Record -->
+                        <?php while($row = mysqli_fetch_assoc($result)){ ?>
                         <tr>
-                            <td>2026-0001</td>
-
                             <td>
-                                Juan Dela Cruz
+                                <?php echo htmlspecialchars($row["student_no"]); ?>
                             </td>
 
                             <td>
-                                juan
+                                <?php echo htmlspecialchars($row["full_name"]); ?>
+                            </td>
+
+                            <td>
+                                <?php echo htmlspecialchars($row["username"]); ?>
                             </td>
 
                             <td>
@@ -114,7 +132,7 @@
                                 </button>
                             </td>
                         </tr>
-
+                        <?php } ?>
                     </tbody>
 
                 </table>

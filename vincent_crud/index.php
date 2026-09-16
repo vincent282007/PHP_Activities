@@ -20,7 +20,7 @@ if(isset($_POST["login"])){ //get username and pass input
     $result = mysqli_query($conn, $sql);
 
     if(mysqli_num_rows($result) == 1){
-        $user = mysqli_fetch_assoc($result);
+        $user = mysqli_fetch_assoc($result); //get specific data
         //check for pass - verify pass
         if(password_verify($password, $user["password"])){
             $_SESSION["user_id"] = $user["id"];
