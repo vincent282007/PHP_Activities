@@ -95,7 +95,7 @@
 
                         <h6>Subjects</h6>
 
-                        <h2><?php echo mysqli_num_rows ($subjects);?></h2>
+                        <h2><?php echo mysqli_num_rows($subjects);?></h2>
 
                         <a
                             href="subjects/index.php"

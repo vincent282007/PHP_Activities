@@ -8,7 +8,6 @@
     }
     $sql = "SELECT * FROM users WHERE role='student' ORDER BY id DESC"; //to get the list of students
     $result = mysqli_query($conn, $sql); //to make the sql command work
-
 ?>
 
 <!doctype html>
