@@ -57,8 +57,8 @@ if(isset($_POST["login"])){ //get username and pass input
                 <div class="alert alert-danger"><?php echo $error ?></div>
             <?php } ?>
             <form method = "POST">
-                <div class="mb-3"><label class="form-label">Username</label><input type="text" name="username" class="form-control"></div>
-                <div class="mb-3"><label class="form-label">Password</label><input type="password" name ="password" class="form-control"></div>
+                <div class="mb-3"><label class="form-label">Username</label><input type="text" name="username" class="form-control" required></div>
+                <div class="mb-3"><label class="form-label">Password</label><input type="password" name ="password" class="form-control" required></div>
                 <button class="btn btn-primary w-100" type="submit" name="login">Login</button>
             </form>
         </div></div>
