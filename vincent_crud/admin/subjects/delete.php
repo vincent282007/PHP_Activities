@@ -9,7 +9,7 @@ session_start();
     $id = isset($_GET['id']) ? intval($_GET['id']) : 0; //intval to turn it into integer. Set variable for id.
     
     //delete SQL
-    mysqli_query($conn, "DELETE FROM subjects WHERE id=$id"s);
+    mysqli_query($conn, "DELETE FROM subjects WHERE id=$id");
 
     header ('location: index.php'); //to go back on the record table
     exit;

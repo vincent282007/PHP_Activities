@@ -18,7 +18,7 @@
             VALUES ('$subject_code', '$subject_name', '$units')";
 
         if(mysqli_query($conn, $sql)){
-            header("Location: index.php?message=Subject Added Successfully!"); //confirmation if the subject is added
+            header("Location: index.php?message=Subject Added Successfully!"); //confirmation if the subject is updated
             exit;
         }
         else{
